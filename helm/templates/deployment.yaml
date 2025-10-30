@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{name}}
+  annotations:
+    deployed-by: backstage
+    git-commit-signer: backstage-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: {{name}} }
+  template:
+    metadata:
+      labels: { app: {{name}} }
+      annotations:
+        deployed-by: backstage
+        git-commit-signer: backstage-bot
+    spec:
+      containers:
+        - name: app
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          ports:
+            - containerPort: {{ .Values.service.port }}

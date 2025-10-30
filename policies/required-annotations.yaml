@@ -1,0 +1,19 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-backstage-deploy
+spec:
+  validationFailureAction: Enforce
+  rules:
+    - name: must-have-backstage-annotations
+      match:
+        any:
+          - resources:
+              kinds: ["Deployment","StatefulSet","Job","CronJob"]
+      validate:
+        message: "Only Backstage-managed objects are allowed."
+        pattern:
+          metadata:
+            annotations:
+              deployed-by: "backstage"
+              git-commit-signer: "backstage-bot"
