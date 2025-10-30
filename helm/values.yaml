@@ -1,0 +1,8 @@
+image:
+  repository: ghcr.io/your-org/{{name}}
+  tag: latest
+service:
+  port: 8080
+annotations:
+  deployed-by: backstage
+  git-commit-signer: backstage-bot
