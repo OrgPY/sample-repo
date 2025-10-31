@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: {{name}}
-  tags: [ai-agent]
+  tags: [ai, ai-agent]
   annotations:
     github.com/project-slug: {{repo}}
 spec:
