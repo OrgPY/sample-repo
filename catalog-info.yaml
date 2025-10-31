@@ -1,11 +1,11 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: {{name}}
-  tags: [ai, ai-agent]
+  name: sample-repo
+  description: Example AI agent
   annotations:
-    github.com/project-slug: {{repo}}
+    github.com/project-slug: OrgPY/sample-repo
 spec:
   type: service
-  owner: {{owner}}
-  lifecycle: experimental
+  owner: ai-platform
+  lifecycle: production
